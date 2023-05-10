@@ -31,7 +31,7 @@ public class Book {
 	    @NotBlank
 	    @Size(min = 3, max = 40)
 	    private String language;
-	    @NotBlank
+	
 	    @Min(100)
 	    private Integer numberOfPages;
 	    // Esto no permitirá que el campo createdAt sea modificado después de su creación.
