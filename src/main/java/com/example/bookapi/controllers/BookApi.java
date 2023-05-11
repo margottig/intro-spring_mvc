@@ -26,11 +26,9 @@ public class BookApi {
 	@Autowired
 	private BookServ bookserv;
 
-	// Otros métodos han sido removidos para resumir.
 	@RequestMapping(value = "/api/books/{id}", method = RequestMethod.PUT)
 	public Book update(@PathVariable("id") Long id, @RequestParam(value = "title") String title,
-			@RequestParam(value = "description") String desc,
-			@RequestParam(value = "language") String lang,
+			@RequestParam(value = "description") String desc, @RequestParam(value = "language") String lang,
 			@RequestParam(value = "pages") Integer numOfPages) {
 
 		Book book = bookserv.updateBook(id, title, desc, lang, numOfPages);
@@ -43,25 +41,35 @@ public class BookApi {
 	}
 
 	@GetMapping(value = "/api/books/todos")
-	public Book show(@PathVariable("id")Long id) {
+	public Book show(@PathVariable("id") Long id) {
 		Book libro = bookserv.findBook(id);
 		return libro;
 	}
-	
+
 	@GetMapping(value = "/api/books/libro/{id}")
 	public Iterable<Book> todosLibros() {
 		System.out.println(" TODOS LIBROS");
 		return bookserv.allBooks();
 	}
 
-	@PostMapping(value="api/books/crear")
-	public Book createBook(
-			@RequestParam(value = "title") String title,
-			@RequestParam(value = "description") String desc,
+	
+	@PostMapping(value = "api/books/crear")
+	public Book createBook(@RequestParam(value = "title") String title,
+			@RequestParam(value = "description") String desc, 
 			@RequestParam(value = "language") String lang,
 			@RequestParam(value = "pages") Integer numOfPages) {
 		Book libro = new Book(title, desc, lang, numOfPages);
 		return bookserv.createBook(libro);
-		
+
 	}
+	
+	
+	
+//	@Override
+//	@PostMapping(value = "api/books/crear")
+//	public void createBook() {
+//		System.out.println();
+//
+//	}
+
 }

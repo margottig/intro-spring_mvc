@@ -23,10 +23,16 @@ public class BookServ {
 	private BookRepo bookrepo;
 
 	// Devolviendo todos los libros.
-	public Iterable<Book> allBooks() {
-		Iterable<Book> todoslibros = bookrepo.findAll();
-		return todoslibros;
-//		return bookrepo.findAll();
+//	public Iterable<Book> allBooks() {
+//		Iterable<Book> todoslibros = bookrepo.findAll();
+//		return todoslibros;
+////		return bookrepo.findAll();
+//	}
+	
+	public List<Book> allBooks() {
+//		List<Book> todoslibros = bookrepo.findAll();
+//		return todoslibros;
+		return bookrepo.findAll();
 	}
 
 	// Creando un libro.
@@ -60,13 +66,14 @@ public class BookServ {
 		}
 	}
 
-	public Book updateBook2(Long id, String title, String desc, String lang, int pages) {
+	// sobrecarga metodo
+	public Book updateBook(Long id, String title, String desc, String lang) {
 		Book optionalBook = bookrepo.findById(id).orElse(null);
 		if (optionalBook != null) {
 			optionalBook.setTitle(title);
 			optionalBook.setDescription(desc);
 			optionalBook.setLanguage(lang);
-			optionalBook.setNumberOfPages(pages);
+//			optionalBook.setNumberOfPages(pages);
 			bookrepo.save(optionalBook);
 			return optionalBook;
 		} else {

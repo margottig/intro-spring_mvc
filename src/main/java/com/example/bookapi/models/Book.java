@@ -22,14 +22,14 @@ public class Book {
 	    @Id
 	    @GeneratedValue(strategy = GenerationType.IDENTITY)
 	    private Long id;
-	    @NotBlank
+	    @NotBlank(message="Por favor llena este campo")
 	    @Size(min = 5, max = 200, message="Por favor el titulo no debe ser menor a 5 caracteres")
 	    private String title;
-	    @NotBlank
-	    @Size(min = 5, max = 200)
+	    @NotBlank(message="Por favor llena este campo")
+	    @Size(min = 5, max = 200, message="Por favor al descripcion no debe ser menor a 5 caracteres")
 	    private String description;
-	    @NotBlank
-	    @Size(min = 3, max = 40)
+	    @NotBlank(message="Por favor llena este campo")
+	    @Size(min = 3, max = 40, message="Por favor al language no debe ser menor a 5 caracteres")
 	    private String language;
 	
 	    @Min(100)

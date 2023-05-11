@@ -1,5 +1,6 @@
 package com.example.bookapi.repositories;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import org.springframework.data.repository.CrudRepository;
@@ -11,7 +12,7 @@ import com.example.bookapi.models.Book;
 public interface BookRepo extends CrudRepository<Book, Long>{
 	
 	//Este método recupera todos los libros de la base de datos
-//	List<Book> findAll();
+	List<Book> findAll();
 	//Este método encuentra un libro por su descripción
 	List<Book> findByDescriptionContaining(String search);
 	//Este método cuenta cuántos libros contiene cierta cadena en el título
