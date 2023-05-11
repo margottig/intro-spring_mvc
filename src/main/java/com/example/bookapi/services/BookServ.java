@@ -81,6 +81,18 @@ public class BookServ {
 		}
 	}
 	
+	public Book updateBook(Book book) {
+		Book actualizarLibro = findBook(book.getId());
+		actualizarLibro.setTitle(book.getTitle());
+		actualizarLibro.setLanguage(book.getLanguage());
+		actualizarLibro.setDescription(book.getDescription());
+		actualizarLibro.setNumberOfPages(book.getNumberOfPages());
+		bookrepo.save(actualizarLibro);
+
+		return actualizarLibro;
+	
+	}
+	
 	public void deleteBook(Long id) {
 		bookrepo.deleteById(id);
 	}
