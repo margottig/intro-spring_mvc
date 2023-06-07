@@ -14,6 +14,7 @@ import jakarta.persistence.PreUpdate;
 import jakarta.persistence.Table;
 import jakarta.validation.constraints.Min;
 import jakarta.validation.constraints.NotBlank;
+import jakarta.validation.constraints.NotNull;
 import jakarta.validation.constraints.Size;
 
 @Entity
@@ -29,10 +30,11 @@ public class Book {
 	    @Size(min = 5, max = 200, message="Por favor al descripcion no debe ser menor a 5 caracteres")
 	    private String description;
 	    @NotBlank(message="Por favor llena este campo")
-	    @Size(min = 3, max = 40, message="Por favor al language no debe ser menor a 5 caracteres")
+	    @Size(min = 3, max = 40, message="Por favor language no debe ser menor a 5 caracteres")
 	    private String language;
 	
 	    @Min(100)
+	    @NotNull
 	    private Integer numberOfPages;
 	    // Esto no permitirá que el campo createdAt sea modificado después de su creación.
 	    

@@ -26,6 +26,11 @@ public class BookController {
 	public String raiz() {
 		return "redirect:/books";
 	}
+	
+	@GetMapping("/test")
+	public String test() {
+		return "Test";
+	}
 
 	@GetMapping("/books")
 	public String index(Model viewModel) {
